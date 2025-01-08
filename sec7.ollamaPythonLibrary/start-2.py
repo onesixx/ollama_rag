@@ -1,15 +1,15 @@
 import ollama
-
-
-response = ollama.list()
-
-# print(response)
+# ollama.list()
+# https://github.com/ollama/ollama-python
 
 # == Chat example ==
 res = ollama.chat(
-    model="llama3.2",
+    model="llama3.3",
     messages=[
-        {"role": "user", "content": "why is the sky blue?"},
+        {
+            "role": "user",
+            "content": "why is the sky blue?"
+        },
     ],
 )
 # print(res["message"]["content"])
@@ -25,12 +25,13 @@ res = ollama.chat(
     ],
     stream=True,
 )
-# for chunk in res:
-#     print(chunk["message"]["content"], end="", flush=True)
+for chunk in res:
+    print(chunk["message"]["content"], end="", flush=True)
 
 
 # ==================================================================================
-# ==== The Ollama Python library's API is designed around the Ollama REST API ====
+# ==== The Ollama Python library's API is designed around
+#      the Ollama REST API ====
 # ==================================================================================
 
 # == Generate example ==

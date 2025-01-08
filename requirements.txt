@@ -1,6 +1,9 @@
+request
+json
+
 ollama
 chromadb
-pdfplumber 
+pdfplumber
 langchain
 langchain-core
 langchain-ollama
