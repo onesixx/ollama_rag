@@ -1,17 +1,10 @@
-request
-json
+requests
 
 ollama
-chromadb
-pdfplumber
-langchain
-langchain-core
-langchain-ollama
+
 langchain-community
-langchain_text_splitters
+langchain-ollama
 unstructured
 unstructured[all-docs]
-fastembed
-pdfplumber
-sentence-transformers
-elevenlabs
+
+chromadb

@@ -54,3 +54,20 @@ Start the Ollama service:
 https://github.com/ollama/ollama/blob/main/docs/api.md
 
 
+2. Python과 SQLite 버전 매핑
+Python은 특정 버전의 SQLite를 내장하고 있으며, 아래는 주요 Python 버전과 포함된 SQLite 버전의 관계입니다:
+
+Python 버전	내장 SQLite 버전
+Python 3.9	SQLite 3.33.0
+---------------------------------
+Python 3.10	SQLite 3.35.4
+Python 3.11	SQLite 3.37.2
+Python 3.12+	최신 SQLite 버전 포함
+# install sqlite3
+# wget https://www.sqlite.org/2024/sqlite-autoconf-3470200.tar.gz
+# tar xvfz sqlite-autoconf-3470200.tar.gz
+# cd sqlite-autoconf-3470200
+
+# ./configure --prefix=/usr/local
+# make
+# sudo make install

@@ -1,0 +1,21 @@
+requests
+json
+
+ollama
+
+langchain-community
+langchain-ollama
+unstructured
+unstructured[all-docs]
+
+chromadb
+
+#
+# fastembed
+# sentence-transformers
+# elevenlabs
+
+# pdfplumber
+# langchain
+# langchain-core
+# langchain_text_splitters
