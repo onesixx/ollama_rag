@@ -1,3 +1,6 @@
+# Ollama - Llama3 > Langchain (FastEmbed) >
+#  > Chroma  (MultiQueryRetriever)> ElevenLabs : voice/audio generation
+
 import ollama
 import os
 import datetime
@@ -29,11 +32,11 @@ for pdf_file in pdf_files:
     # Prepare the prompt for the model
     prompt = f"""
     You are an AI assistant that helps with summarizing PDF documents.
-    
+
     Here is the content of the PDF file '{pdf_file}':
-    
+
     {text}
-    
+
     Please summarize the content of this document in a few sentences.
     """
 

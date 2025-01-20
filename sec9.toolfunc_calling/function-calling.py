@@ -5,7 +5,7 @@ import random
 from ollama import AsyncClient
 
 
-# Load the grocery list from a text file
+#### Load the grocery list from a text file
 def load_grocery_list(file_path):
     if not os.path.exists(file_path):
         print(f"File {file_path} does not exist.")
@@ -13,8 +13,11 @@ def load_grocery_list(file_path):
     with open(file_path, "r") as file:
         items = [line.strip() for line in file if line.strip()]
     return items
+# load_grocery_list("../data/grocery_list.txt")
 
-# Function to fetch price and nutrition data for an item
+
+
+### Function to fetch price and nutrition data for an item
 async def fetch_price_and_nutrition(item):
     print(f"Fetching price and nutrition data for '{item}'...")
     # Replace with actual API calls
@@ -27,8 +30,10 @@ async def fetch_price_and_nutrition(item):
         "fat":     f"{random.randint(1, 20)} g",
         "protein": f"{random.randint(1, 30)} g",
     }
+# result = fetch_price_and_nutrition("Milk")
+# await result
 
-# Function to fetch a recipe based on a category
+### Function to fetch a recipe based on a category
 async def fetch_recipe(category):
     print(f"Fetching a recipe for the '{category}' category...")
     # Replace with actual API calls to a recipe site
@@ -40,6 +45,8 @@ async def fetch_recipe(category):
         "ingredients": ["Ingredient 1", "Ingredient 2", "Ingredient 3"],
         "instructions": "Mix ingredients and cook.",
     }
+
+
 
 async def main():
     # Load grocery list
@@ -91,29 +98,33 @@ async def main():
 
     # Step 1: Categorize items using the model
     categorize_prompt = f"""
-You are an assistant that categorizes grocery items.
+        You are an assistant that categorizes grocery items.
 
-**Instructions:**
+        **Instructions:**
 
-- Return the result **only** as a valid JSON object.
-- Do **not** include any explanations, greetings, or additional text.
-- Use double quotes (`"`) for all strings.
-- Ensure the JSON is properly formatted.
-- The JSON should have categories as keys and lists of items as values.
+        - Return the result **only** as a valid JSON object.
+        - Do **not** include any explanations, greetings, or additional text.
+        - Use double quotes (`"`) for all strings.
+        - Ensure the JSON is properly formatted.
+        - The JSON should have categories as keys and lists of items as values.
 
-**Example Format:**
+        **Example Format:**
 
-{{
-  "Produce": ["Apples", "Bananas"],
-  "Dairy": ["Milk", "Cheese"]
-}}
+        {{
+        "Produce": ["Apples", "Bananas"],
+        "Dairy": ["Milk", "Cheese"]
+        }}
 
-**Grocery Items:**
+        **Grocery Items:**
 
-{', '.join(grocery_items)}
-"""
+        {', '.join(grocery_items)}
+        """
 
-    messages = [{"role": "user", "content": categorize_prompt}]
+    messages = [{
+        "role": "user",
+        "content": categorize_prompt
+    }]
+
     # First API call: Categorize items
     response = await client.chat(
         model="llama3.2",

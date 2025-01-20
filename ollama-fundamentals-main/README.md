@@ -1,3 +1,7 @@
+
+Mastering Ollama: Build Private Local LLM Apps with Python
+
+
 <!-- @format -->
 # Welcome to The AI Guild 🚀
 
